@@ -1,0 +1,33 @@
+#include <graphics.h>
+#include <conio.h>
+void main()
+{
+ initgraph(640, 480); 
+ int x = 320;
+ int y = 240;
+ setlinecolor(YELLOW);
+ setfillcolor(GREEN);
+ fillcircle(x, y, 20); 
+ char c;
+ while(c != 27)
+ {
+  c = getch();
+  setlinecolor(BLACK);
+  setfillcolor(BLACK);
+  fillcircle(x, y, 20);
+  switch(c)
+  {
+   case 'a': x-=2; break;
+   case 'd': x+=2; break;
+   case 's': y+=2; break;
+   case 'w': y-=2; break;
+   case 27: break;
+  }
+  setlinecolor(YELLOW);
+  setfillcolor(GREEN);
+  fillcircle(x, y, 20);
+  Sleep(10);
+ }
+ 
+ closegraph();
+}
